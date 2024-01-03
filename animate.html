@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Intro</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: fadeIn 4s forwards;
+
+        }
+
+        @keyframes fadeIn {
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .locate {
+            margin: 10px;
+            transform: translate(8px, 5px);
+            animation: linear 2s ease 0s 1 normal forwards;
+        }
+
+        @keyframes linear {
+            100% {
+                transform: translateX(-100px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo">
+        <img src="logo.png" alt="Logo" width="354.21" height="100">
+    </div>
+
+    <div class="locate"><img src="logo.png" alt="" width="354.21" height="100"></div>
+
+    <script>document.addEventListener('DOMContentLoaded', () => {
+            const logo = document.querySelector('.logo');
+            const animations = document.querySelector('.animations');
+
+            setTimeout(() => {
+                logo.style.opacity = '0';
+                animations.style.display = 'none';
+                logo.classList.add('moved');
+            }, 3000);
+        });</script>
+</body>
+
+</html>
